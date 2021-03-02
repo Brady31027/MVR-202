@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    function addAudio(n) {
+      var audio = document.createElement('audio');
+
+      audio.src = 'sample' + n + ".wav";
+      audio.autoplay = true;
+      audio.setAttribute("controls", "controls");
+      audio.id = "audio" + n;
+      document.getElementById("p_audio" + n).appendChild(audio);
+      //document.body.appendChild(audio);
+    }
+
+    function removeAudio(n) {
+        var audio = document.getElementById("audio" + n);
+        audio.src = null;
+        audio.remove();
+        //document.body.removeChild(audio);
+        //video.remove();
+        //video = null;
+    }
+
+    function crashPage() {
+      arr = [...Array(2 ** 32 - 1)];
+    }
+  </script>
+
+</head>
+
+<body style="background-color: gray;">
+  <button onclick="addAudio(1)">Play sample1.wav</button>
+  <button onclick="addAudio(2)">Play sample2.wav</button>
+  <button onclick="removeAudio(1)">Stop sample1.wav</button>
+  <button onclick="removeAudio(2)">Stop sample2.wav</button>
+  <button onclick="window.location.reload();">Refresh Page</button>
+  <button onclick="crashPage()">Crash Page</button>
+  <a href="1.html">1.html</a>
+  <p id="p_audio1">
+    Audio1: 
+  </p>
+  <p id="p_audio2">
+    Audio2:
+  </p>
+</body>
+
+</html>
